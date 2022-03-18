@@ -4,6 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
@@ -13,6 +14,9 @@ public class MyGdxGame extends ApplicationAdapter {
 	private Texture bucketImage;
 	private Sound dropSound;
 	private Music rainMusic;
+
+	private OrthographicCamera camera;
+	private SpriteBatch batch;
 
 	@Override
 	public void create() {
@@ -28,6 +32,10 @@ public class MyGdxGame extends ApplicationAdapter {
 		rainMusic.setLooping(true);
 		rainMusic.play();
 
-		// ... more to come ...
+		// add camera
+		camera = new OrthographicCamera();
+		camera.setToOrtho(false, 800, 480);
+
+		batch = new SpriteBatch();
 	}
 }
